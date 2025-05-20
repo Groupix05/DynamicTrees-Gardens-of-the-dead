@@ -1,0 +1,7 @@
+{
+  "parent": "dynamictrees:item/branch",
+  "textures": {
+    "bark": "gardens_of_the_dead:block/soulblight_stem",
+    "rings": "gardens_of_the_dead:block/soulblight_stem_top"
+  }
+}

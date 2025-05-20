@@ -1,0 +1,18 @@
+[
+  {
+    "__comment": "Cancel nether trees",
+    "select": { "name": "gardens_of_the_dead:soulblight_forest", "tag": "#minecraft:is_nether" },
+    "cancellers": {
+      "type": "fungus",
+      "namespace": "gardens_of_the_dead"
+    }
+  },
+  {
+    "__comment": "Cancel nether trees",
+    "select": { "name": "gardens_of_the_dead:soulblight_forest", "tag": "#minecraft:is_nether" },
+    "cancellers": {
+      "type": "tree",
+      "namespace": "gardens_of_the_dead"
+    }
+  }
+]

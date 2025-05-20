@@ -1,0 +1,51 @@
+license="MIT"
+modLoader="javafml"
+loaderVersion="[47,)"
+issueTrackerURL="https://github.com/Groupix05/Dynamic-Trees-Gardens-of-the-dead/issues"
+
+[[mods]]
+modId="dtgardensofthedead"
+version="${file.jarVersion}"
+displayName="Dynamic Trees for Gardens of the Dead"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-gardens_of_the_dead"
+logoFile="logo.png"
+credits="Max Hyper"
+authors="Groupix05"
+description='''
+Compatibility Mod between Dynamic Trees and Gardens of the Dead
+'''
+
+[[dependencies.dtgardensofthedead]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.3.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dtgardensofthedead]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20,1.21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dtgardensofthedead]]
+    modId="dynamictrees"
+    mandatory=true
+    versionRange="[1.20.1-1.3.0-BETA4,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dtgardensofthedead]]
+    modId="dynamictreesplus"
+    mandatory=false
+    versionRange="[1.20.1-1.2.0-BETA1,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dtgardensofthedead]]
+    modId = "gardens_of_the_dead"
+    mandatory = true
+    versionRange = "[4.0.1,)"
+    ordering = "AFTER"
+    side = "BOTH"

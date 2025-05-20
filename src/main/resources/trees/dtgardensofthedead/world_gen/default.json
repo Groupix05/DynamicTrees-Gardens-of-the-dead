@@ -1,0 +1,23 @@
+[
+  {
+    "select": {"name": "gardens_of_the_dead:whistling_woods"},
+    "apply": {
+      "species": {
+        "random": {
+          "crimson": 3,
+          "mega_crimson": 1
+        }
+      },
+      "chance": "standard",
+      "density": [1.7,0.3]
+    }
+  },
+  {
+    "select": {"name": "gardens_of_the_dead:soulblight_forest"},
+    "apply": {
+      "species" : "dtgardensofthedead:soulblight",
+      "density": 1.5,
+      "chance": 0.3
+    }
+  }
+]

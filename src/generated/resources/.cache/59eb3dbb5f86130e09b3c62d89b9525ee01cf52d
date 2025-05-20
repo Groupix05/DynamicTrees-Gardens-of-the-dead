@@ -1,0 +1,6 @@
+// 1.20.1	2024-12-31T01:28:36.96051663	Loot Tables
+5770a53ee2fa3635d9a9f76c43bd355937930fb6 data/dtgardensofthedead/loot_tables/blocks/soulblight_wart.json
+1d31d3c62c753455daac3b0458fd0ad55beb844f data/dtgardensofthedead/loot_tables/trees/branches/soulblight.json
+988a4f0be6367f391ea2d243c54ae09d04c4dd81 data/dtgardensofthedead/loot_tables/trees/branches/stripped_soulblight.json
+f1882a820ec0c94bdbb1f746e0cc274a16c89ff3 data/dtgardensofthedead/loot_tables/trees/leaves/soulblight.json
+3923bb0a411e18f8a8e847696fdf03f9fe0fe773 data/dtgardensofthedead/loot_tables/trees/voluntary/soulblight.json

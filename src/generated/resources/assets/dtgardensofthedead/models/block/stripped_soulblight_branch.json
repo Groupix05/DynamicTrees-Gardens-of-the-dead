@@ -1,0 +1,7 @@
+{
+  "loader": "dynamictrees:branch",
+  "textures": {
+    "bark": "gardens_of_the_dead:block/stripped_soulblight_stem",
+    "rings": "gardens_of_the_dead:block/stripped_soulblight_stem_top"
+  }
+}
