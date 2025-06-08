@@ -2,6 +2,10 @@ package groupix05.dtgardensofthedead;
 
 import com.ferreusveritas.dynamictrees.api.GatherDataHelper;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
+import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
+import com.ferreusveritas.dynamictrees.block.rooty.SoilProperties;
+import com.ferreusveritas.dynamictrees.tree.family.Family;
+import com.ferreusveritas.dynamictrees.tree.species.Species;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -31,8 +35,19 @@ public final class DynamicTreesGardensOfTheDead {
     }
 
     private void gatherData(final GatherDataEvent event) {
-        GatherDataHelper.gatherTagData(MOD_ID, event);
-        GatherDataHelper.gatherLootData(MOD_ID, event);
+        GatherDataHelper.gatherAllData(MOD_ID, event,
+                SoilProperties.REGISTRY,
+                Family.REGISTRY,
+                Species.REGISTRY,
+                LeavesProperties.REGISTRY
+                //Fruit.REGISTRY,
+                //Pod.REGISTRY,
+                //CapProperties.REGISTRY //Requires DTPlus
+        );
+    }
+
+    public static ResourceLocation location(final String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 
 }

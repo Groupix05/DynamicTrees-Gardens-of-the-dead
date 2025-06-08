@@ -42,10 +42,21 @@ import java.util.Objects;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DTGardensOfTheDeadRegistries {
 
+    public static final VoxelShape MUSHROOM_STEM = Block.box(7D, 0D, 7D, 9D, 7D, 9D);
+    public static final VoxelShape MUSHROOM_CAP_BOTTOM = Block.box(5D, 7D, 5D, 11D, 9D, 11D);
+    public static final VoxelShape MUSHROOM_CAP_TOP = Block.box(6D, 9D, 6D, 10D, 10D, 10D);
+
+    public static final VoxelShape SOULBLIGHT_MUSHROOM = Shapes.or(
+        MUSHROOM_STEM,
+        MUSHROOM_CAP_BOTTOM,
+        MUSHROOM_CAP_TOP
+    );
+
     public static void setup() {
         if (ModList.get().isLoaded("netherexp")){
             setupConnectables();
         }
+        CommonVoxelShapes.SHAPES.put(DynamicTreesGardensOfTheDead.location("soulblight_cap").toString(), SOULBLIGHT_MUSHROOM);
     }
 
     @SubscribeEvent

@@ -31,10 +31,10 @@ public class DTGardensOfTheDeadCellKits {
         private final Cell branchCell = new Cell() {
             @Override
             public int getValue() {
-                return 5;
+                return 4;
             }
 
-            final int[] map = {0, 3, 5, 5, 5, 5};
+            final int[] map = {0, 3, 4, 4, 4, 4};
 
             @Override
             public int getValueFromSide(Direction side) {
@@ -43,8 +43,7 @@ public class DTGardensOfTheDeadCellKits {
 
         };
 
-        private final CellSolver SoulblightSolver = new CellKits.BasicSolver(new short[]{0x0514, 0x0423, 0x0412, 0x0312, 0x0211});
-
+        private final CellSolver SoulblightSolver = new CellKits.BasicSolver(new short[]{0x0423, 0x0412, 0x0312, 0x0211});
         @Override
         public Cell getCellForLeaves(int hydro) {
             return soulblightCells[hydro];
@@ -70,7 +69,7 @@ public class DTGardensOfTheDeadCellKits {
 
         @Override
         public int getDefaultHydration() {
-            return 7;
+            return 4;
         }
 
     };

@@ -17,9 +17,9 @@
     "primitive_sapling": "gardens_of_the_dead:soulblight_fungus",
     "acceptable_soils": ["nether_like"],
     "acceptable_growth_blocks": ["soul_sand", "soul_soil", "dynamictrees:rooty_soul_soil", "dynamictrees:rooty_soul_sand"],
-    "sapling_shape": "flat_mushroom",
+    "sapling_shape": "dtgardensofthedead:soulblight_cap",
     "model_overrides": {
-        "sapling": "dynamictrees:block/smartmodel/mushroom_round"
+        "sapling": "dtgardensofthedead:saplings/soulblight_cap"
     },
     "features": [
         "clear_volume",
@@ -49,8 +49,8 @@
         {
             "name": "dtgardensofthedead:floor_vines",
             "properties": {
-                "block": "minecraft:dirt",
-                "quantity": 5
+                "block": "gardens_of_the_dead:soulblight_sprouts",
+                "quantity": 10
             }
         }
     ],

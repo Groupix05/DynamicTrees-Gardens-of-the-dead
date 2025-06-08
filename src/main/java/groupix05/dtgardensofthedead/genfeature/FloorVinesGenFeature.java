@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeatureConfiguration;
@@ -116,14 +117,12 @@ public class FloorVinesGenFeature extends GenFeature {
     }
 
     protected void addFloorVines(GenFeatureConfiguration configuration, LevelAccessor level, Species species, BlockPos rootPos, BlockPos branchPos, SafeChunkBounds safeBounds) {
-        // Uses fruit ray trace method to grab a position under the tree's leaves.
-        BlockPos vinePos = CoordUtils.getRayTraceFruitPos(level, species, rootPos, branchPos, safeBounds);
+        // Uses fruit ray trace method to grab a position above the tree's leaves.
+        BlockPos vinePos = getRayTraceAbovePos(level, species, rootPos, branchPos, safeBounds);
 
         if (!safeBounds.inBounds(vinePos, true)) {
             return;
         }
-
-        vinePos = this.findAboveLeaves(level, vinePos, safeBounds);
 
         if (vinePos == BlockPos.ZERO) {
             return;
@@ -164,6 +163,25 @@ public class FloorVinesGenFeature extends GenFeature {
     protected void placeVines(LevelAccessor level, BlockPos vinePos, BlockState vinesState) {
         final BlockPos.MutableBlockPos mPos = new BlockPos.MutableBlockPos(vinePos.getX(), vinePos.getY(), vinePos.getZ());
         level.setBlock(mPos,vinesState,3);
+    }
+
+    public static BlockPos getRayTraceAbovePos(LevelAccessor level, Species species, BlockPos treePos, BlockPos branchPos, SafeChunkBounds safeBounds) {
+        final HitResult result = CoordUtils.branchRayTrace(level, species, treePos, branchPos, 45, 60, 4 + level.getRandom().nextInt(3), safeBounds);
+
+        if (result != null) {
+            BlockPos hitPos = BlockPos.containing(result.getLocation());
+            if (hitPos != BlockPos.ZERO) {
+                do { // Run straight up until we hit a block that's non compatible leaves.
+                    hitPos = hitPos.above();
+                } while (species.getFamily().isCompatibleGenericLeaves(species, level.getBlockState(hitPos), level, hitPos));
+
+                if (level.isEmptyBlock(hitPos)) { // If that block is air then we have a winner.
+                    return hitPos;
+                }
+            }
+        }
+
+        return BlockPos.ZERO;
     }
 
 }

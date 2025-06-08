@@ -1,8 +1,8 @@
 {
-  "parent": "dynamictrees:block/smartmodel/mushroom_round",
+  "parent": "dtgardensofthedead:saplings/soulblight_cap",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "cap": "gardens_of_the_dead:block/soulblight_cap",
-    "stem": "gardens_of_the_dead:block/soulblight_cap"
+    "cap": "dtgardensofthedead:block/soulblight_cap",
+    "stem": "dtgardensofthedead:block/soulblight_cap"
   }
 }
