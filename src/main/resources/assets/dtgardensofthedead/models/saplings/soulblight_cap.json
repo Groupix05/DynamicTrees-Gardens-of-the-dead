@@ -2,7 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"1": "dtgardensofthedead:block/soulblight_cap"
+		"1": "dtgardensofthedead:block/soulblight_cap",
+		"particle": "dtgardensofthedead:block/soulblight_cap"
 	},
 	"elements": [
 		{
