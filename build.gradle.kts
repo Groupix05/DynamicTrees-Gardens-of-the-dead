@@ -101,8 +101,8 @@ dependencies {
     runtimeOnly(fg.deobf("cc.tweaked:cc-tweaked-$mcVersion-forge:${property("ccVersion")}"))
 
     //For compatibility
-    implementation(fg.deobf("curse.maven:jadens-nether-expansion-1111833:6039343"))
-    runtimeOnly(fg.deobf("curse.maven:elysium-api-1158628:5998863"))
+    //implementation(fg.deobf("curse.maven:jadens-nether-expansion-1111833:6039343"))
+    //runtimeOnly(fg.deobf("curse.maven:elysium-api-1158628:5998863"))
 
 }
 

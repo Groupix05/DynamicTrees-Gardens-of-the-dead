@@ -9,6 +9,7 @@ import com.ferreusveritas.dynamictrees.growthlogic.GrowthLogicKit;
 import com.ferreusveritas.dynamictrees.systems.genfeature.BeeNestGenFeature;
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
 import com.ferreusveritas.dynamictrees.tree.species.Species;
+import com.ferreusveritas.dynamictrees.tree.family.Family;
 import com.ferreusveritas.dynamictrees.util.CommonVoxelShapes;
 import com.ferreusveritas.dynamictrees.worldgen.featurecancellation.MushroomFeatureCanceller;
 import com.ferreusveritas.dynamictrees.api.TreeHelper;
@@ -35,16 +36,20 @@ import net.minecraftforge.registries.RegisterEvent;
 import groupix05.dtgardensofthedead.cell.DTGardensOfTheDeadCellKits;
 import groupix05.dtgardensofthedead.growthlogic.DTGardensOfTheDeadGrowthLogicKits;
 import groupix05.dtgardensofthedead.genfeature.DTGardensOfTheDeadGenFeatures;
-import net.jadenxgamer.netherexp.registry.block.JNEBlocks;
+import groupix05.dtgardensofthedead.trees.*;
 
 import java.util.Objects;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DTGardensOfTheDeadRegistries {
 
-    public static final VoxelShape MUSHROOM_STEM = Block.box(7D, 0D, 7D, 9D, 7D, 9D);
-    public static final VoxelShape MUSHROOM_CAP_BOTTOM = Block.box(5D, 7D, 5D, 11D, 9D, 11D);
-    public static final VoxelShape MUSHROOM_CAP_TOP = Block.box(6D, 9D, 6D, 10D, 10D, 10D);
+    private static VoxelShape box(double p_49797_, double p_49798_, double p_49799_, double p_49800_, double p_49801_, double p_49802_) {
+        return Shapes.box(p_49797_ / (double)16.0F, p_49798_ / (double)16.0F, p_49799_ / (double)16.0F, p_49800_ / (double)16.0F, p_49801_ / (double)16.0F, p_49802_ / (double)16.0F);
+    }
+
+    public static final VoxelShape MUSHROOM_STEM = box(7D, 0D, 7D, 9D, 7D, 9D);
+    public static final VoxelShape MUSHROOM_CAP_BOTTOM = box(5D, 7D, 5D, 11D, 9D, 11D);
+    public static final VoxelShape MUSHROOM_CAP_TOP = box(6D, 9D, 6D, 10D, 10D, 10D);
 
     public static final VoxelShape SOULBLIGHT_MUSHROOM = Shapes.or(
         MUSHROOM_STEM,
@@ -53,9 +58,6 @@ public class DTGardensOfTheDeadRegistries {
     );
 
     public static void setup() {
-        if (ModList.get().isLoaded("netherexp")){
-            setupConnectables();
-        }
         CommonVoxelShapes.SHAPES.put(DynamicTreesGardensOfTheDead.location("soulblight_cap").toString(), SOULBLIGHT_MUSHROOM);
     }
 
@@ -74,21 +76,8 @@ public class DTGardensOfTheDeadRegistries {
         DTGardensOfTheDeadGenFeatures.register(event.getRegistry());
     }
 
-    private static void setupConnectables() {
-        BranchConnectables.makeBlockConnectable(JNEBlocks.SHROOMBLIGHT.get(), (state, level, pos, side) -> {
-            if (side == Direction.DOWN) {
-                BlockState branchState = level.getBlockState(pos.relative(Direction.UP));
-                BranchBlock branch = TreeHelper.getBranch(branchState);
-                if (branch != null) {
-                    return Mth.clamp(branch.getRadius(branchState) - 1, 1, 8);
-                } else {
-                    return 8;
-                }
-            }
-            return 0;
-        });
+    @SubscribeEvent
+    public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
+        event.registerType(DynamicTreesGardensOfTheDead.location("soulblight"), SoulblightSpecies.TYPE);
     }
-
-
-
 }

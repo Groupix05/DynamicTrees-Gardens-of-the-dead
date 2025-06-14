@@ -1,6 +1,6 @@
 {
-    "type": "nether_fungus",
-    "common_leaves": "gardens_of_the_dead:blightwart_block",
+    "type": "dtgardensofthedead:soulblight",
+    "common_leaves": "dtgardensofthedead:soulblight",
     "common_species": "dtgardensofthedead:soulblight",
     "primitive_log": "gardens_of_the_dead:soulblight_stem",
     "primitive_stripped_log": "gardens_of_the_dead:stripped_soulblight_stem",

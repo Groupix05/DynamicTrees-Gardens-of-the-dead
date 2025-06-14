@@ -26,7 +26,6 @@
         {
             "name": "shroomlight",
             "properties": {
-                "only_if_loaded": "netherexp",
                 "shroomlight": "netherexp:shroomblight"
             }
         },
