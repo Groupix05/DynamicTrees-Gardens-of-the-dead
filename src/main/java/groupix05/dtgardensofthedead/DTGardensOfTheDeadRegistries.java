@@ -43,7 +43,7 @@ import java.util.Objects;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DTGardensOfTheDeadRegistries {
 
-    private static VoxelShape box(double p_49797_, double p_49798_, double p_49799_, double p_49800_, double p_49801_, double p_49802_) {
+    public static VoxelShape box(double p_49797_, double p_49798_, double p_49799_, double p_49800_, double p_49801_, double p_49802_) {
         return Shapes.box(p_49797_ / (double)16.0F, p_49798_ / (double)16.0F, p_49799_ / (double)16.0F, p_49800_ / (double)16.0F, p_49801_ / (double)16.0F, p_49802_ / (double)16.0F);
     }
 

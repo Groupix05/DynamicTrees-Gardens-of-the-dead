@@ -24,12 +24,6 @@
     "features": [
         "clear_volume",
         {
-            "name": "shroomlight",
-            "properties": {
-                "shroomlight": "netherexp:shroomblight"
-            }
-        },
-        {
             "name": "bottom_flare",
             "properties": {
                 "min_radius": 7
@@ -51,9 +45,10 @@
                 "block": "gardens_of_the_dead:soulblight_sprouts",
                 "quantity": 10
             }
-        }
+        },
+        "shroomlight"
     ],
     "lang_overrides": {
-        "seed": "soulblight Cap"
+        "seed": "Soulblight Cap"
     }
 }
