@@ -33,7 +33,8 @@ public class SoulblightLogic extends GrowthLogicKit {
     @Override
     public int[] populateDirectionProbabilityMap(GrowthLogicKitConfiguration configuration,
                                                 DirectionManipulationContext context) {
-        return new int[]{0, 0, 1, 1, 1, 1};//{down,up,north,south,west,est}
+        boolean tip = context.signal().energy < 2;
+        return new int[]{0, tip?1:0, 1, 1, 1, 1};//{down,up,north,south,west,est}
     }
 
     private float getHashedVariation(Level level, BlockPos pos) {

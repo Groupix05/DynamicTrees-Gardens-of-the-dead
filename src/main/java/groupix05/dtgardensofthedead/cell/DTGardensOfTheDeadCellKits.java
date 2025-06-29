@@ -34,7 +34,7 @@ public class DTGardensOfTheDeadCellKits {
                 return 4;
             }
 
-            final int[] map = {0, 3, 4, 4, 4, 4};
+            final int[] map = {0, 5, 4, 4, 4, 4};
 
             @Override
             public int getValueFromSide(Direction side) {
@@ -43,7 +43,7 @@ public class DTGardensOfTheDeadCellKits {
 
         };
 
-        private final CellSolver SoulblightSolver = new CellKits.BasicSolver(new short[]{0x0423, 0x0412, 0x0312, 0x0211});
+        private final CellSolver SoulblightSolver = new CellKits.BasicSolver(new short[]{0x512, 0x0413, 0x0322, 0x0311, 0x0211});
         @Override
         public Cell getCellForLeaves(int hydro) {
             return soulblightCells[hydro];
